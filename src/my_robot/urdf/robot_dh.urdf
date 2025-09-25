@@ -18,7 +18,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://my_robot/meshes/Pieza2-0.17.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://my_robot/meshes/Pieza2-0.17.stlas" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="link2_mat"><color rgba="0.8 0.8 0.8 1"/></material>
     </visual>

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<robot name="arm4dof">
+  <link name="base_link"/>
+
+  <link name="link1">
+    <visual><geometry><box size="0.050 0.050 0.300"/></geometry>
+      <material name="link1_mat"><color rgba="0.2 0.2 0.2 1.0"/></material>
+    </visual>
+    <collision><geometry><box size="0.050 0.050 0.300"/></geometry></collision>
+    <inertial><mass value="0.5"/><inertia ixx="1e-3" iyy="1e-3" izz="1e-3" ixy="0" ixz="0" iyz="0"/></inertial>
+  </link>
+
+  <link name="link2">
+    <visual><geometry><box size="0.400 0.040 0.040"/></geometry>
+      <material name="link2_mat"><color rgba="0.2 0.2 0.2 1.0"/></material>
+    </visual>
+    <collision><geometry><box size="0.400 0.040 0.040"/></geometry></collision>
+    <inertial><mass value="0.5"/><inertia ixx="1e-3" iyy="1e-3" izz="1e-3" ixy="0" ixz="0" iyz="0"/></inertial>
+  </link>
+
+  <link name="link3">
+    <visual><geometry><box size="0.350 0.040 0.040"/></geometry>
+      <material name="link3_mat"><color rgba="0.2 0.2 0.2 1.0"/></material>
+    </visual>
+    <collision><geometry><box size="0.350 0.040 0.040"/></geometry></collision>
+    <inertial><mass value="0.5"/><inertia ixx="1e-3" iyy="1e-3" izz="1e-3" ixy="0" ixz="0" iyz="0"/></inertial>
+  </link>
+
+  <link name="link4">
+    <visual><geometry><box size="0.200 0.040 0.040"/></geometry>
+      <material name="link4_mat"><color rgba="0.2 0.2 0.2 1.0"/></material>
+    </visual>
+    <collision><geometry><box size="0.200 0.040 0.040"/></geometry></collision>
+    <inertial><mass value="0.5"/><inertia ixx="1e-3" iyy="1e-3" izz="1e-3" ixy="0" ixz="0" iyz="0"/></inertial>
+  </link>
+  <link name="ee"/>
+
+  <joint name="joint1" type="revolute">
+    <parent link="base_link"/><child link="link1"/>
+    <origin xyz="0.000000 0.000000 0.300000" rpy="1.570796 0.000000 1.570796"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" velocity="2.0" effort="5.0"/>
+  </joint>
+
+  <joint name="joint2" type="revolute">
+    <parent link="link1"/><child link="link2"/>
+    <origin xyz="0.400000 0.000000 0.000000" rpy="0.000000 0.000000 -1.570796"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" velocity="2.0" effort="5.0"/>
+  </joint>
+
+  <joint name="joint3" type="revolute">
+    <parent link="link2"/><child link="link3"/>
+    <origin xyz="0.350000 0.000000 0.000000" rpy="0.000000 0.000000 1.570796"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" velocity="2.0" effort="5.0"/>
+  </joint>
+
+  <joint name="joint4" type="revolute">
+    <parent link="link3"/><child link="link4"/>
+    <origin xyz="0.200000 0.000000 0.000000" rpy="1.570796 0.000000 0.000000"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" velocity="2.0" effort="5.0"/>
+  </joint>
+
+  <joint name="tool0_fixed" type="fixed">
+    <parent link="link4"/><child link="ee"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>

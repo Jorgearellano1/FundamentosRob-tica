@@ -8,7 +8,7 @@ class JSP(Node):
         super().__init__('jsp')
         self.pub = self.create_publisher(JointState, 'joint_states', 10)
         self.t0 = time.time()
-        self.create_timer(0.02, self.step)  # 50 Hz
+        self.create_timer(0.02, self.step)  
 
     def step(self):
         t = time.time() - self.t0
